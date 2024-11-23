@@ -8,14 +8,12 @@ pipeline {
         }
         stage('Construir Aplicación') {
             steps {
-                bat './mvnw clean package -DskipTests'  // Si usas Maven Wrapper
-                // o
-                // sh 'mvn clean package' // Si tienes Maven instalado
+                bat './mvnw.cmd clean package'
             }
         }
-        stage('Ejecutar Aplicación de Escritorio') {
+        stage('Ejecutar Aplicación') {
             steps {
-                sh 'java -jar target/eje1-0.0.1-SNAPSHOT.jar'  // Ajusta la ruta si es necesario
+                bat 'java -jar target/eje1-0.0.1-SNAPSHOT.jar'  // Ajusta la ruta si es necesario
             }
         }
     }
